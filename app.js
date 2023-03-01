@@ -58,6 +58,7 @@ linkCopy.addEventListener('click', (e) => {
 // }, 3000);
 
 const animMonkeyBtn = document.querySelector('.anim-monkey');
+const animMonkeyOut = document.querySelector('.anim-monkey__btn-out');
 const animMonkeyBtnClose = document.querySelector('.anim-monkey__btn-close');
 const animBoomEvent = document.querySelector('.boom-js');
 const animAsteroidEvent = document.querySelector('.asteroid-js');
@@ -74,6 +75,7 @@ const monkeyInner = document.querySelector('.anim-monkey__inner');
 const monkeyContent = document.querySelector('.anim-monkey__content');
 
 animMonkeyBtn.addEventListener('mouseover', () => {
+  animMonkeyOut.classList.add('active');
   monkeyInner.classList.add('active');
   monkeyContent.classList.add('active');
 });
@@ -81,6 +83,7 @@ animMonkeyBtn.addEventListener('mouseover', () => {
 animMonkeyBtn.addEventListener('mouseout', () => {
   monkeyInner.classList.remove('active');
   monkeyContent.classList.remove('active');
+  animMonkeyOut.classList.remove('active');
 });
 
 animMonkeyBtnClose.addEventListener('click', () => {

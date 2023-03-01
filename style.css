@@ -133,10 +133,11 @@ input[type='number'] {
   display: flex;
   justify-content: flex-end;
 }
+
 .anim-monkey__inner {
-  padding-right: 160px;
   padding-top: 15px;
   padding-bottom: 15px;
+
   max-width: 700px;
   width: 0;
   display: flex;
@@ -152,6 +153,7 @@ input[type='number'] {
 
 .anim-monkey__inner.active {
   width: 100%;
+  padding-right: 160px;
 }
 
 .anim-monkey__content {
@@ -218,11 +220,6 @@ input[type='number'] {
 }
 
 .anim-monkey__btn {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 160px;
-  height: 160px;
   padding: 0;
   border: none;
   border-radius: 5px;
@@ -235,9 +232,44 @@ input[type='number'] {
     rgb(143 39 228 / 10%) 98%,
     rgb(143 39 228 / 35%) 100%
   );
+  /* perspective: 1000px; */
   box-shadow: 0 0 10px rgb(0 0 0 / 50%);
 
-  transition: opacity 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.anim-monkey__btn-out {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  width: 160px;
+  height: 160px;
+  transform: perspective(600px) rotateY(0deg);
+  backface-visibility: hidden;
+  overflow: hidden;
+  animation: anim-monkey 3s infinite 1s ease-in-out;
+
+  transition: transform 0.9s ease-in-out;
+}
+
+.anim-monkey__btn-out.active {
+  animation: none;
+}
+
+@keyframes anim-monkey {
+  0% {
+    transform: perspective(600px) rotateY(0deg);
+  }
+  25% {
+    transform: perspective(600px) rotateY(-45deg);
+  }
+  50% {
+    transform: perspective(600px) rotateY(45deg);
+  }
+  100% {
+    transform: perspective(600px) rotateY(0deg);
+  }
 }
 
 .anim-monkey__btn-close {
