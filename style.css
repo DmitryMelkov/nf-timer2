@@ -217,19 +217,22 @@ input[type='number'] {
   z-index: -1;
 }
 
-
 .anim-monkey__btn-content {
   position: relative;
   width: 150px;
   height: 150px;
   transform-style: preserve-3d;
   transform: rotateX(-10deg);
-  animation: animate 5s linear infinite;
+  animation-name: animateStart;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation: animateStart linear 5s infinite alternate;
   cursor: pointer;
 }
 
 .anim-monkey__btn-content:hover {
-  animation-play-state: paused;
+  animation-name: none;
 }
 
 .anim-monkey__btn-box {
@@ -257,22 +260,31 @@ input[type='number'] {
   height: 100%;
   transform: rotateY(calc(90deg * var(--i))) translateX(5px) translateZ(-5px);
   background-color: rgba(4, 194, 207, 0.9);
-  box-shadow: 0px 5px 10px 2px rgba(4, 194, 207, 0.9) inset;
 }
 
 .anim-monkey__btn-box-side-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
+  background-color: rgb(162, 230, 245);
   transform: rotateY(calc(90deg * var(--i))) translateZ(10px);
+}
+
+.anim-monkey__btn-box-side-3 span {
+  text-align: center;
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 700;
+  color: blue;
 }
 
 .anim-monkey__btn-box-side-4 {
   width: 10px;
   height: 100%;
   transform: rotateY(calc(90deg * var(--i))) translateX(-5px) translateZ(-145px);
-
   background-color: rgba(4, 194, 207, 0.9);
-  box-shadow: 0px 5px 10px 2px rgba(4, 194, 207, 0.9) inset;
 }
 
 .anim-monkey__btn-box-img {
@@ -287,7 +299,6 @@ input[type='number'] {
   width: 150px;
   height: 10px;
   background-color: rgba(4, 194, 207, 0.9);
-  box-shadow: 0px 5px 10px 2px rgba(4, 194, 207, 0.9) inset;
   transform: rotateX(90deg) translateX(0) translateY(-5px) translateZ(5px);
 }
 
@@ -303,20 +314,7 @@ input[type='number'] {
   filter: blur(10px);
 }
 
-@keyframes animate {
-  /* 0% {
-    transform: rotateX(-10deg) rotateY(0deg);
-  }
-  25% {
-    transform: rotateX(-10deg) rotateY(-45deg);
-  }
-  50% {
-    transform: rotateX(-10deg) rotateY(45deg);
-  }
-  100% {
-    transform: rotateX(-10deg) rotateY(0deg);
-  } */
-
+@keyframes animateStart {
   0% {
     transform: rotateX(-10deg) rotateY(0deg);
   }
@@ -325,7 +323,14 @@ input[type='number'] {
   }
 }
 
-
+@keyframes animateStop {
+  0% {
+    transform: rotateX(-10deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(-10deg) rotateY(360deg);
+  }
+}
 
 .anim-monkey__btn-close {
   position: absolute;
@@ -655,6 +660,60 @@ input[type='number'] {
 
 .modal__img {
   max-width: 300px;
+}
+
+.cube {
+  margin-top: 150px;
+  margin-bottom: 150px;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+.cube__inner {
+  transform-style: preserve-3d;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  position: relative;
+  animation: cube 10s linear infinite;
+}
+
+.cube__img {
+  position: absolute;
+  opacity: 0.9;
+}
+
+.cube__img-1 {
+  transform: rotateY(0deg) translateZ(150px);
+}
+
+.cube__img-2 {
+  transform: rotateY(90deg) translateZ(150px);
+}
+
+.cube__img-3 {
+  transform: rotateY(180deg) translateZ(150px);
+}
+
+.cube__img-4 {
+  transform: rotateY(-90deg) translateZ(150px);
+}
+
+.cube__img-5 {
+  transform: rotateX(90deg) translateZ(150px);
+}
+
+.cube__img-6 {
+  transform: rotateX(-90deg) translateZ(150px);
+}
+
+@keyframes cube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
 }
 
 /* hover */

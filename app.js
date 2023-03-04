@@ -81,7 +81,6 @@ animMonkeyBtn.addEventListener('mouseover', () => {
 animMonkeyBtn.addEventListener('mouseout', () => {
   monkeyInner.classList.remove('active');
   monkeyContent.classList.remove('active');
-
 });
 
 animMonkeyBtnClose.addEventListener('click', () => {
