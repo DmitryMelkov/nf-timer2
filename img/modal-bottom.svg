@@ -1,0 +1,23 @@
+<svg class="bg-stripes" style="width: 100%;position: absolute;bottom: 0px;left: 0px;z-index: 0;"
+            data-name="wave-bottom" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 799.9 192.5">
+            <defs>
+              <clipPath id="clip-path" transform="translate(0 -3.47)">
+                <rect width="799.9" height="195.98" style="fill:none"></rect>
+              </clipPath>
+              <linearGradient id="wave-bottom-gradient" y1="99.72" x2="799.9" y2="99.72" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#9c6af1"></stop>
+                <stop offset="1" stop-color="#df71e7"></stop>
+              </linearGradient>
+            </defs>
+            <title>wave-bottom</title>
+            <g style="clip-path:url(#clip-path)">
+              <g id="AI_Image.psd">
+                <g style="clip-path:url(#clip-path)">
+                  <path
+                    d="M799.9,27V196H0V27a6.51,6.51,0,0,0,1.31.72C44.63,39.32,88.59,46.52,133.5,47.12c26.47.36,52.92.1,79.28-2.92,19.81-2.27,39.67-4,59.45-6.43,20.75-2.57,41.44-5.67,62.13-8.63,23.65-3.37,47.27-7,70.94-10.24,29.76-4.06,59.48-8.88,89.38-11.43,31.15-2.64,62.51-4.12,93.76-4C620,3.62,651.62,6,683.15,8.13c17.86,1.24,35.72,3.49,53.39,6.43C757.77,18.08,778.79,22.82,799.9,27Z"
+                    transform="translate(0 -3.47)" style="fill:url(#wave-bottom-gradient)"></path>
+                </g>
+              </g>
+            </g>
+          </svg>
