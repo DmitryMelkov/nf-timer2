@@ -637,6 +637,9 @@ input[type='number'] {
 }
 
 .modal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -645,6 +648,7 @@ input[type='number'] {
   width: 100%;
   min-height: 700px;
   max-width: 800px;
+  overflow: hidden;
 }
 
 .modal__close {
@@ -664,20 +668,15 @@ input[type='number'] {
 
 .modal__article {
   padding: 20px;
+  padding-bottom: 60px;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 11;
 }
 
 .modal__article-top {
   display: flex;
-  margin-top: 50px;
-  margin-bottom: 50px;
 }
 
 .modal__left-btn {
@@ -737,21 +736,12 @@ input[type='number'] {
 }
 
 .modal__bottom-span {
+  text-align: center;
   margin-bottom: 30px;
   font-size: 20px;
   line-height: 20px;
-  color: rgb(255, 255, 255);
+  color: rgb(66, 64, 113);
   font-weight: 800;
-}
-
-.modal__bottom-input {
-  font-size: 20px;
-  line-height: 20px;
-  color: rgb(255, 255, 255);
-  font-weight: 800;
-  background-color: transparent;
-  border: none;
-  text-align: center;
 }
 
 .modal__bottom-btn {
@@ -761,10 +751,10 @@ input[type='number'] {
   font-size: 20px;
   line-height: 20px;
   color: rgb(186, 109, 236);
+  border: 1px solid rgb(186, 109, 236);
   font-weight: 800;
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   border-radius: 44px;
-  border: none;
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;
 }
@@ -822,6 +812,90 @@ input[type='number'] {
     transform: rotateX(360deg) rotateY(360deg);
   }
 }
+
+.wave {
+  opacity: 0.6;
+  position: absolute;
+  bottom: 75%;
+  left: 50%;
+  width: 2000px;
+  height: 2000px;
+  background: linear-gradient(90deg, rgb(221, 166, 218) 0%, rgb(214, 34, 175) 100%);
+  margin-left: -1000px;
+  transform-origin: 50% 48%;
+  border-radius: 50%;
+  animation: wave 5s infinite linear;
+  pointer-events: none;
+}
+
+/* .wave {
+  margin: -500px;
+  position: absolute;
+  top: -25%;
+  left: 50%;
+  width: 1000px;
+  height: 1025px;
+  border-radius: 45%;
+  background: linear-gradient(90deg, rgb(221, 166, 218) 0%, rgb(214, 34, 175) 100%);
+  z-index: 111;
+  opacity: 1;
+  animation: wave 15s infinite linear;
+}
+
+.wave::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 40%;
+  background: linear-gradient(90deg, rgb(221, 166, 218) 0%, rgb(214, 34, 175) 100%);
+  z-index: 11;
+  opacity: 0.6;
+  animation: wave2 25s infinite linear;
+}
+
+.wave::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 35%;
+  background: linear-gradient(90deg, rgb(221, 166, 218) 0%, rgb(214, 34, 175) 100%);
+  z-index: 11;
+  opacity: 0.4;
+  animation: wave3 25s infinite linear;
+} */
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* @keyframes wave2 {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wave3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+} */
 
 /* hover */
 @media (min-width: 1024px) {
@@ -882,6 +956,65 @@ input[type='number'] {
   }
   .anim-monkey__title {
     max-width: 200px;
+  }
+
+  .modal__article {
+    margin-top: 100px;
+  }
+  .modal__article-top {
+    flex-direction: column-reverse;
+  }
+
+  .modal__article-left {
+    width: 100%;
+  }
+
+  .modal__article-right {
+    width: 100%;
+  }
+
+  .cube {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .cube__inner {
+    width: 90px;
+    height: 90px;
+  }
+
+  .cube__img-1 {
+    transform: rotateY(0deg) translateZ(45px);
+  }
+
+  .cube__img-2 {
+    transform: rotateY(90deg) translateZ(45px);
+  }
+
+  .cube__img-3 {
+    transform: rotateY(180deg) translateZ(45px);
+  }
+
+  .cube__img-4 {
+    transform: rotateY(-90deg) translateZ(45px);
+  }
+
+  .cube__img-5 {
+    transform: rotateX(90deg) translateZ(45px);
+  }
+
+  .cube__img-6 {
+    transform: rotateX(-90deg) translateZ(45px);
+  }
+
+  .modal__article-bottom {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .timer {
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 30px;
   }
 }
 
