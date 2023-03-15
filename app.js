@@ -1,3 +1,4 @@
+//таймер
 const btn = document.querySelector('.btn-js');
 const time = document.querySelector('.time-js');
 const timeSpan = document.querySelector('.time-span-js');
@@ -31,6 +32,7 @@ linkCopy.addEventListener('click', (e) => {
   copy();
 });
 
+//появление карточки
 const animMonkeyBtn = document.querySelector('.anim-monkey');
 const animMonkeyBtnClose = document.querySelector('.anim-monkey__btn-close');
 const animBoomEvent = document.querySelector('.boom-js');
@@ -44,6 +46,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
+//ховер карточки
 const monkeyInner = document.querySelector('.anim-monkey__inner');
 const monkeyContent = document.querySelector('.anim-monkey__content');
 
@@ -57,6 +60,7 @@ animMonkeyBtn.addEventListener('mouseout', () => {
   monkeyContent.classList.remove('active');
 });
 
+//куки
 const createCookie = (name, value, days) => {
   let expires;
   if (days) {
@@ -76,13 +80,14 @@ animMonkeyBtnClose.addEventListener('click', () => {
     d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes();
 
   let cookie = document.cookie;
-  cookie = 'ADS_card=' + dateString;
+  cookie = dateString;
 
   console.log(cookie);
 
-  createCookie('name', cookie, 5);
+  createCookie('ADS_card', cookie, 5);
 });
 
+//модалка
 const modalClose = document.querySelector('.modal__close');
 const modalWindow = document.querySelector('.modal');
 const modalMore = document.querySelector('.anim-monkey__content-btn');
