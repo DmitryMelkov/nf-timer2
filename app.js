@@ -31,32 +31,6 @@ linkCopy.addEventListener('click', (e) => {
   copy();
 });
 
-// const animMonkey = bodymovin.loadAnimation({
-//   container: document.querySelector('.anim-monkey__btn'),
-//   renderer: 'svg',
-//   loop: true,
-//   autoplay: true,
-//   path: './img-js/nft-monkey.json',
-// });
-
-// const animAsteroid = bodymovin.loadAnimation({
-//   container: document.querySelector('.asteroid'),
-//   renderer: 'svg',
-//   loop: 1,
-//   autoplay: true,
-//   path: './img-js/asteroid-exploration.json',
-// });
-
-// setTimeout(() => {
-//   const animBoom = bodymovin.loadAnimation({
-//     container: document.querySelector('.boom'),
-//     renderer: 'svg',
-//     loop: 1,
-//     autoplay: true,
-//     path: './img-js/particle-explosion.json',
-//   });
-// }, 3000);
-
 const animMonkeyBtn = document.querySelector('.anim-monkey');
 const animMonkeyBtnClose = document.querySelector('.anim-monkey__btn-close');
 const animBoomEvent = document.querySelector('.boom-js');
@@ -85,6 +59,14 @@ animMonkeyBtn.addEventListener('mouseout', () => {
 
 animMonkeyBtnClose.addEventListener('click', () => {
   animMonkeyBtn.classList.remove('active');
+  let d = new Date();
+  let dateString =
+    d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes();
+
+  let cookie = document.cookie;
+  cookie = ' ADS_card=' + dateString;
+
+  console.log(cookie);
 });
 
 const modalClose = document.querySelector('.modal__close');
