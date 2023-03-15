@@ -57,6 +57,18 @@ animMonkeyBtn.addEventListener('mouseout', () => {
   monkeyContent.classList.remove('active');
 });
 
+const createCookie = (name, value, days) => {
+  let expires;
+  if (days) {
+    let date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = '; expires=' + date.toGMTString();
+  } else {
+    expires = '';
+  }
+  document.cookie = name + '=' + value + expires + '; path=/';
+};
+
 animMonkeyBtnClose.addEventListener('click', () => {
   animMonkeyBtn.classList.remove('active');
   let d = new Date();
@@ -64,9 +76,11 @@ animMonkeyBtnClose.addEventListener('click', () => {
     d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes();
 
   let cookie = document.cookie;
-  cookie = ' ADS_card=' + dateString;
+  cookie = 'ADS_card=' + dateString;
 
   console.log(cookie);
+
+  createCookie('name', cookie, 5);
 });
 
 const modalClose = document.querySelector('.modal__close');
