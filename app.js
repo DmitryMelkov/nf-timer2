@@ -20,6 +20,24 @@ btn.addEventListener('click', () => {
   }, 1000);
 });
 
+//куки
+const createCookie = (name, value, days) => {
+  let expires;
+  if (days) {
+    let date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = '; expires=' + date.toGMTString();
+  } else {
+    expires = '';
+  }
+  document.cookie = name + '=' + value + expires + '; path=/';
+};
+
+const getCookie = (name) => {
+  let match = document.cookie.match(RegExp('(?:^|;\\s*)' + name + '=([^;]*)'));
+  return match ? match[1] : null;
+};
+
 //копирование содержимого ссылки
 const copy = () => {
   const linkValue = document.querySelector('.link-value-js');
@@ -35,14 +53,17 @@ linkCopy.addEventListener('click', (e) => {
 //появление карточки
 const animMonkeyBtn = document.querySelector('.anim-monkey');
 const animMonkeyBtnClose = document.querySelector('.anim-monkey__btn-close');
-const animBoomEvent = document.querySelector('.boom-js');
-const animAsteroidEvent = document.querySelector('.asteroid-js');
 
 window.addEventListener('scroll', () => {
-  if (window.pageYOffset > 500) {
-    animMonkeyBtn.classList.add('active');
-    animAsteroidEvent.classList.add('active');
-    animBoomEvent.classList.add('active');
+  let cookieADSCard = getCookie('ADS_card');
+  if (cookieADSCard == null) {
+    if (window.pageYOffset > 500) {
+      animMonkeyBtn.classList.add('active');
+    } else {
+      animMonkeyBtn.classList.remove('active');
+    }
+  } else {
+    console.log('cookies');
   }
 });
 
@@ -60,19 +81,6 @@ animMonkeyBtn.addEventListener('mouseout', () => {
   monkeyContent.classList.remove('active');
 });
 
-//куки
-const createCookie = (name, value, days) => {
-  let expires;
-  if (days) {
-    let date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    expires = '; expires=' + date.toGMTString();
-  } else {
-    expires = '';
-  }
-  document.cookie = name + '=' + value + expires + '; path=/';
-};
-
 animMonkeyBtnClose.addEventListener('click', () => {
   animMonkeyBtn.classList.remove('active');
   let d = new Date();
@@ -81,10 +89,7 @@ animMonkeyBtnClose.addEventListener('click', () => {
 
   let cookie = document.cookie;
   cookie = dateString;
-
-  console.log(cookie);
-
-  createCookie('ADS_card', cookie, 5);
+  createCookie('ADS_card', cookie, 1);
 });
 
 //модалка
