@@ -440,8 +440,6 @@ input[type='number'] {
   opacity: 0.7;
 }
 
-
-
 .timer__time {
   width: 100%;
   position: absolute;
@@ -480,7 +478,6 @@ input[type='number'] {
 }
 
 .timer__link-content {
-
   position: absolute;
   top: 0;
   left: 50px;
@@ -720,8 +717,6 @@ input[type='number'] {
   transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
   outline: none;
-
-
 }
 
 .modal__bottom-btn::before {
@@ -782,51 +777,13 @@ input[type='number'] {
   }
 }
 
-
-
 .cube {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  perspective: 1000px;
-  perspective-origin: 50% 50%;
-}
-
-.cube__inner {
-  transform-style: preserve-3d;
+  position: relative;
   width: 150px;
   height: 150px;
-  margin: auto;
-  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg);
   animation: cube 10s linear infinite;
-}
-
-.cube__img {
-  position: absolute;
-  opacity: 0.9;
-}
-
-.cube__img-1 {
-  transform: rotateY(0deg) translateZ(74px);
-}
-
-.cube__img-2 {
-  transform: rotateY(90deg) translateZ(74px);
-}
-
-.cube__img-3 {
-  transform: rotateY(180deg) translateZ(74px);
-}
-
-.cube__img-4 {
-  transform: rotateY(-90deg) translateZ(74px);
-}
-
-.cube__img-5 {
-  transform: rotateX(90deg) translateZ(74px);
-}
-
-.cube__img-6 {
-  transform: rotateX(-90deg) translateZ(74px);
 }
 
 @keyframes cube {
@@ -838,12 +795,88 @@ input[type='number'] {
   }
 }
 
+.cube__edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.cube__edge div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(162, 230, 245);
+  transform: rotateY(calc(90deg * var(--i))) translateZ(75px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.cube__edge div img {
+  position: absolute;
+  transform: translateZ(3px) translateX(3px) translateY(-3px);
+}
+
+.cube__edge div img:nth-child(1) {
+  transform: translateZ(0px) translateX(0px) translateY(0px);
+  opacity: 0.4;
+}
+
+.cube__top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background-color: rgb(162, 230, 245);
+
+  transform-style: preserve-3d;
+  transform: rotateX(90deg) translateZ(75px);
+}
+
+.cube__top img {
+  position: absolute;
+  transform: translateZ(3px) translateX(3px) translateY(3px);
+}
+
+.cube__top img:nth-child(1) {
+  transform: translateZ(0px) translateX(0px) translateY(0px);
+  opacity: 0.4;
+}
+
+.cube__bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background-color: rgb(162, 230, 245);
+
+  transform: rotateX(90deg) translateZ(-75px);
+}
+
+.cube__bottom img {
+  position: absolute;
+  transform: translateZ(3px) translateX(3px) translateY(3px);
+}
+
+.cube__bottom img:nth-child(1) {
+  transform: translateZ(0px) translateX(0px) translateY(0px);
+  opacity: 0.4;
+}
+
 /* hover */
 @media (min-width: 1024px) {
   .anim-monkey__content-btn:hover::before {
     opacity: 1;
   }
-
 
   .modal__close:hover,
   .anim-monkey__btn-close:hover {
@@ -881,34 +914,6 @@ input[type='number'] {
   }
   .modal__article-right {
     grid-column: span 3;
-  }
-  .cube__inner {
-    width: 90px;
-    height: 90px;
-  }
-
-  .cube__img-1 {
-    transform: rotateY(0deg) translateZ(45px);
-  }
-
-  .cube__img-2 {
-    transform: rotateY(90deg) translateZ(45px);
-  }
-
-  .cube__img-3 {
-    transform: rotateY(180deg) translateZ(45px);
-  }
-
-  .cube__img-4 {
-    transform: rotateY(-90deg) translateZ(45px);
-  }
-
-  .cube__img-5 {
-    transform: rotateX(90deg) translateZ(45px);
-  }
-
-  .cube__img-6 {
-    transform: rotateX(-90deg) translateZ(45px);
   }
 }
 
@@ -993,12 +998,30 @@ input[type='number'] {
     margin-right: 0;
   }
 
-
   .timer__link-content {
     left: 15px;
   }
 
+  .cube {
+    width: 90px;
+    height: 90px;
+  }
 
+  .cube__edge div {
+    transform: rotateY(calc(90deg * var(--i))) translateZ(45px);
+  }
+
+  .cube__top {
+    width: 90px;
+    height: 90px;
+    transform: rotateX(90deg) translateZ(45px);
+  }
+
+  .cube__bottom {
+    width: 90px;
+    height: 90px;
+    transform: rotateX(90deg) translateZ(-45px);
+  }
 }
 
 @media (max-width: 415px) {
