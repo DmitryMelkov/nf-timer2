@@ -777,6 +777,7 @@ input[type='number'] {
   }
 }
 
+/* куб в модалке */
 .cube {
   position: relative;
   width: 150px;
@@ -870,6 +871,193 @@ input[type='number'] {
 .cube__bottom img:nth-child(1) {
   transform: translateZ(0px) translateX(0px) translateY(0px);
   opacity: 0.4;
+}
+
+/* 3d-блок */
+
+.section__pattern {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.pattern {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  height: 100%;
+  animation: animateBg 10s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+@keyframes animateBg {
+  0% {
+    transform: scale(1.6) rotate(-5deg);
+  }
+  100% {
+    transform: scale(1.6) rotate(5deg);
+  }
+}
+
+.face {
+  position: relative;
+  width: 100%;
+  height: 35vh;
+  background-image: url('./img/check.jpg');
+  background-size: 100px 100px;
+  animation: back 3s linear infinite;
+}
+
+@keyframes back {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 100px;
+  }
+}
+
+.face2 {
+  height: 35vh;
+  transform-origin: top;
+  transform: rotateX(70deg);
+}
+
+.face2::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 125px;
+  background: linear-gradient(1800deg, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.face1::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 125px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.card {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.card__container {
+  display: flex;
+}
+
+.card__box {
+  margin-right: 30px;
+  position: relative;
+  min-width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg);
+  animation: card 60s linear infinite;
+}
+
+@keyframes card {
+  0% {
+    transform: rotateX(-20deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(-20deg) rotateY(360deg);
+  }
+}
+
+.card__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.card__edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#86ade7, #f5f7fa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.card__top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 20px;
+  background-color: #86ade7;
+
+  transform: rotateX(90deg) translateX(0) translateY(-10px) translateZ(10px);
+}
+
+.card__edge-2 {
+  width: 20px;
+  height: 100%;
+  transform: rotateY(calc(90deg * var(--i))) translateX(10px) translateZ(-10px);
+}
+
+.card__edge-3 {
+  transform: rotateY(calc(90deg * var(--i))) translateZ(20px);
+}
+
+.card__edge-4 {
+  width: 20px;
+  height: 100%;
+  transform: rotateY(calc(90deg * var(--i))) translateX(-10px) translateZ(-290px);
+}
+
+.card__bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 20px;
+  background-color: #86ade7;
+  transform: rotateX(90deg) translateX(0) translateY(-10px) translateZ(-320px);
+  filter: blur(5px);
+}
+
+.card__edge img {
+  position: absolute;
+  transform: translateZ(3px) translateX(3px) translateY(-3px);
+}
+
+.card__edge img:nth-child(1) {
+  transform: translateZ(0px) translateX(0px) translateY(0px);
+  opacity: 0.4;
+}
+
+.card__title {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 700;
+  color: black;
+}
+
+.card__descr {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 600;
+  color: black;
 }
 
 /* hover */
