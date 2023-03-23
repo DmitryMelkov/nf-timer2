@@ -880,18 +880,14 @@ input[type='number'] {
   width: 100%;
   height: 60vh;
   overflow: hidden;
-  background-image: url('./img/back.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
-/* .pattern {
+.pattern {
   position: relative;
   transform-style: preserve-3d;
   perspective: 1000px;
   height: 100%;
-  animation: animateBg 10s ease-in-out infinite;
+  /* animation: animateBg 10s ease-in-out infinite; */
   opacity: 0.5;
 }
 
@@ -946,18 +942,14 @@ input[type='number'] {
   width: 100%;
   height: 125px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent);
-} */
-
-
-
+}
 
 .card {
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 0;
   z-index: 1;
-  transform: translateY(-50%);
 }
 
 .card__container {
@@ -965,11 +957,17 @@ input[type='number'] {
   display: flex;
 }
 
+.card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .card__box {
   margin-right: 30px;
   position: relative;
-  min-width: 300px;
-  height: 300px;
+  min-width: 200px;
+  height: 200px;
   transform-style: preserve-3d;
   transform: rotateX(-20deg);
   animation: card 10s linear infinite;
@@ -1010,7 +1008,7 @@ input[type='number'] {
   position: absolute;
   top: 0;
   left: 0;
-  width: 300px;
+  width: 200px;
   height: 20px;
   background-color: #5d93e4;
 
@@ -1023,18 +1021,16 @@ input[type='number'] {
   transform: rotateY(calc(90deg * var(--i))) translateX(10px) translateZ(-10px);
   background: none;
   background-color: #5d93e4;
-
 }
 
 .card__edge-3 {
   transform: rotateY(calc(90deg * var(--i))) translateZ(20px);
-
 }
 
 .card__edge-4 {
   width: 20px;
   height: 100%;
-  transform: rotateY(calc(90deg * var(--i))) translateX(-10px) translateZ(-290px);
+  transform: rotateY(calc(90deg * var(--i))) translateX(-10px) translateZ(-190px);
   background: none;
   background-color: #5d93e4;
 }
@@ -1043,10 +1039,10 @@ input[type='number'] {
   position: absolute;
   top: 0;
   left: 0;
-  width: 300px;
+  width: 200px;
   height: 20px;
   background-color: #86ade7;
-  transform: rotateX(90deg) translateX(0) translateY(-10px) translateZ(-320px);
+  transform: rotateX(90deg) translateX(0) translateY(-10px) translateZ(-220px);
   filter: blur(5px);
 }
 
@@ -1064,14 +1060,113 @@ input[type='number'] {
   font-size: 24px;
   line-height: 24px;
   font-weight: 700;
-  color: white;
+  color: black;
 }
 
 .card__descr {
   font-size: 18px;
   line-height: 20px;
   font-weight: 600;
-  color: white;
+  color: black;
+}
+
+/* room */
+
+.room {
+  background-color: #e6e6e6;
+  width: 100%;
+  min-height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 20rem;
+  perspective-origin: 50% calc(50% - 2em);
+  overflow: hidden;
+}
+
+.room__inner {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.room__front-wall {
+  position: absolute;
+  width: 1300px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translateZ(-100px) translateX(-50%) translateY(-50%);
+  background-color: #b3b3b3;
+  box-shadow: inset 0 0 320px rgb(0 0 0 / 50%);
+}
+
+.room__bottom-wall {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1300px;
+  height: 700px;
+  transform: translateZ(-100px) translateX(-50%) translateY(-31%) rotateX(48deg) scaleZ(1.01);
+
+  background-color: #b3b3b3;
+  box-shadow: inset 0 0 320px rgb(0 0 0 / 50%);
+}
+
+.room__top-wall {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1300px;
+  height: 700px;
+  transform: translateZ(-100px) translateX(-50%) translateY(-69%) rotateX(135deg) scaleZ(1.01);
+
+  background-color: #b3b3b3;
+  box-shadow: inset 0 0 320px rgb(0 0 0 / 50%);
+}
+
+.room__left-wall {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 1300px;
+  background-image: linear-gradient(to bottom, #ccc, #666666);
+  transform: translateZ(-100px) translateX(-273%) translateY(-49%) rotateY(40deg) scaleZ(1.01);
+}
+
+.room__right-wall {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 1300px;
+  background-image: linear-gradient(to bottom, #ccc, #666666);
+  transform: translateZ(-100px) translateX(175%) translateY(-48.5%) rotateY(-40deg) scaleZ(1.01);
+}
+
+/* room-example */
+
+.room-example {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: conic-gradient(
+    from 63.5deg,
+    #e2d0d0 53deg 38deg,
+    #837c7c 48deg 180deg,
+    #dbd6d6 178deg 233deg,
+    #8f8a8a 140deg 360deg
+  );
+}
+
+.frame {
+  position: relative;
+  width: 800px;
+  height: 400px;
+  background-color: #b3b3b3;
+  box-shadow: inset 0 0 320px rgb(0 0 0 / 50%);
 }
 
 /* hover */
