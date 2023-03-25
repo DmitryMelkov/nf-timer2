@@ -113,5 +113,5 @@ const myAtropos = Atropos({
   rotateXMax: 50,
   rotateYMax: 50,
   activeOffset: 30,
-
+  highlight: true,
 });
