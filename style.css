@@ -966,19 +966,19 @@ input[type='number'] {
 .card__box {
   margin-right: 30px;
   position: relative;
-  min-width: 200px;
+  width: 200px;
   height: 200px;
   transform-style: preserve-3d;
-  transform: rotateX(-20deg);
+  transform: translateX(100%) translateY(100%);
   animation: card 10s linear infinite;
 }
 
 @keyframes card {
   0% {
-    transform: rotateX(-20deg) rotateY(0deg);
+    transform: translateX(100%) translateY(180%) rotateY(0deg);
   }
   100% {
-    transform: rotateX(-20deg) rotateY(360deg);
+    transform: translateX(100%) translateY(180%) rotateY(360deg);
   }
 }
 
@@ -1111,6 +1111,7 @@ input[type='number'] {
   align-items: center;
   width: 540px;
   height: 306px;
+  cursor: pointer;
 }
 
 .card-block__bg {
@@ -1215,7 +1216,7 @@ input[type='number'] {
 }
 
 .card-grid__item {
-  width: 270px;
+  width: 100%;
   height: 100%;
   min-height: 390px;
   grid-column: span 3;
@@ -1231,9 +1232,7 @@ input[type='number'] {
   padding-right: 15px;
   width: 100%;
   height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1248,6 +1247,10 @@ input[type='number'] {
 }
 
 .card-grid__back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
   transform: rotateY(180deg);
 }
 .card-grid__item:hover .card-grid__front {
@@ -1287,6 +1290,77 @@ input[type='number'] {
   color: black;
   font-weight: 500;
   text-align: center;
+}
+
+/* room */
+.room {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.room__box {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  transform-style: preserve-3d;
+  transform: rotateX(-60deg) rotateY(30deg);
+  /* animation: room 10s linear infinite; */
+}
+
+.room__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.room__edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #8b24e07e;
+  transform: rotateY(calc(90deg * var(--i))) translateZ(300px);
+  border: 1px solid black;
+}
+
+@keyframes room {
+  0% {
+    transform: rotateX(-30deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(-30deg) rotateY(360deg);
+  }
+}
+
+.room__top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  background-color: #9a32ef;
+
+  transform: rotateX(90deg) translateZ(300px);
+  /* opacity: 0.5; */
+  border: 1px solid black;
+}
+
+.room__bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #9a32ef;
+
+  transform: rotateX(90deg) translateZ(-300px);
+  border: 1px solid black;
 }
 
 /* hover */
